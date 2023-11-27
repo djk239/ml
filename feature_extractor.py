@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Variables for dataset paths, to be changed accordingly
-attributesDataFile = "./List of attributes and their values.xlsx - Sheet.csv"
+attributesDataFile = "./List_of_attributes_and_their_values.csv"
 gramPositiveDataFile = "./g_data.csv"
 
 # Read in data
