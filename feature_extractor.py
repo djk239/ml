@@ -36,8 +36,8 @@ resultDF.to_csv('GramPositive Protien with attibute sums(according to sequence).
 
 # Below portion used to create file with only certain, handpicked, features
 pickedFeatures = [
-    'Label',
-    'Protien',
+    'Label',                    # MUST BE INCLUDED
+    'Protien',                  # MUST BE INCLUDED
     'Hydrophobicity index base on helix in membrane',
     'Polarity (driven from amino acids)',
     'Hydrophilicity value (driven from free amino acids)',
@@ -46,5 +46,7 @@ pickedFeatures = [
     'Energy of transfer from inside to outside',
     'Buried and accessible molar fraction ratio'
 ]
+
+# Make new dataset with above listed features
 handPicked = resultDF[pickedFeatures]
 handPicked.to_csv('HandedPickedData.csv', index=False)

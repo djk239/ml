@@ -1,5 +1,5 @@
 # 
-# CLASSIFICATION USING SVM
+# CLASSIFICATION USING KNN
 #
 
 import pandas as pd
@@ -7,7 +7,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 
@@ -21,11 +21,11 @@ y = data['Label']
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-# Create SVC classifier
-svm_classifier = SVC(kernel='rbf', C=132.596)
+# Create KNN classifier
+knn_classifier = KNeighborsClassifier(n_neighbors=8)
 
-# Use one vs rest on SVC
-ovr_classifier = OneVsRestClassifier(svm_classifier)
+# Use one vs rest on KNN
+ovr_classifier = OneVsRestClassifier(knn_classifier)
 
 # Train the model
 ovr_classifier.fit(X_train, y_train)
