@@ -32,3 +32,19 @@ for k, sequence in dataset2['Sequence'].items():
         resultDF.at[k,attribute_name] = featureSum
 
 resultDF.to_csv('GramPositive Protien with attibute sums(according to sequence).csv', index=False)
+
+
+# Below portion used to create file with only certain, handpicked, features
+pickedFeatures = [
+    'Label',
+    'Protien',
+    'Hydrophobicity index base on helix in membrane',
+    'Polarity (driven from amino acids)',
+    'Hydrophilicity value (driven from free amino acids)',
+    'Average Volume of surrounding residues',
+    'Surrounding hydrophobicity in folded form',
+    'Energy of transfer from inside to outside',
+    'Buried and accessible molar fraction ratio'
+]
+handPicked = resultDF[pickedFeatures]
+handPicked.to_csv('HandedPickedData.csv', index=False)
