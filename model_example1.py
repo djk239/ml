@@ -6,10 +6,10 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.multiclass import OneVsRestClassifier
-from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
+from sklearn.metrics import make_scorer, confusion_matrix, accuracy_score, classification_report
 
 # data containing labels and feature values
 data = pd.read_csv("./HandedPickedData.csv")
@@ -22,7 +22,7 @@ y = data['Label']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # Create SVC classifier
-svm_classifier = SVC(kernel='rbf', C=132.596)
+svm_classifier = SVC(kernel='poly', C=4)
 
 # Use one vs rest on SVC
 ovr_classifier = OneVsRestClassifier(svm_classifier)
@@ -63,3 +63,16 @@ plt.title('Confusion Matrix')
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.show()
+
+# k-fold cross-validation:
+
+# Create StratifiedKFold for classification (k-fold validation object)
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+
+# Perform k-fold cross-validation
+kfold_results = cross_val_score(ovr_classifier, X, y, cv=kfold, scoring=make_scorer(accuracy_score))
+
+# Print cross-validation results
+print("Cross-Validation Results:")
+print(kfold_results)
+print(f"Mean Accuracy: {np.mean(kfold_results)}")

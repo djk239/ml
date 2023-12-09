@@ -11,7 +11,7 @@ The project is as follows:
 
 2: You will need to prepare the data (properly put them together with labels) and use different machine learning methods on them (e.g., K-Nearest Neighbor (KNN), Support Vector Machine (SVM), Naïve Bayes, Artificial Neural Network (ANN), Random Forest, Bagging). As the data suggest, the problem is hand is a multi-class classification task.
 Note: The problem is protein subcellular localization. The proteins can function in different locations in the cell. Given a protein, it is important to identify its functioning location. Fore this problem, we are working with Gram-positive bacterial proteins which function in 4 locations in the cell. So, the problem is to get the training data, extract relevant feature, and build a model to predict the functioning location for a given protein.
-3: You hen need to analyze and interpret your output using different approaches such as:
+3: You then need to analyze and interpret your output using different approaches such as:
 	3.1: Using independent test set
 	3.2: k-fold cross validation
 	3.3: check different accuracy measurement

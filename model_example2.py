@@ -6,10 +6,10 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.multiclass import OneVsRestClassifier
-from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
+from sklearn.metrics import make_scorer, confusion_matrix, accuracy_score, classification_report
 
 # data containing labels and feature values
 data = pd.read_csv("./HandedPickedData.csv")
@@ -63,3 +63,14 @@ plt.title('Confusion Matrix')
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.show()
+
+# Create StratifiedKFold for classification (k-fold validation object)
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+
+# Perform k-fold cross-validation
+kfold_results = cross_val_score(ovr_classifier, X, y, cv=kfold, scoring=make_scorer(accuracy_score))
+
+# Print cross-validation results
+print("Cross-Validation Results:")
+print(kfold_results)
+print(f"Mean Accuracy: {np.mean(kfold_results)}")
