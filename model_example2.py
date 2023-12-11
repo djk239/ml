@@ -18,11 +18,23 @@ data = pd.read_csv("./HandedPickedData.csv")
 X = data.iloc[:,2:]
 y = data['Label']
 
+# Set classification variables
+testsize = 0.2
+randomstate = 1
+k = 8
+
+# Set K fold testing variables
+kfoldRandomstate = 1
+kfoldsplits = 5
+
+
+
+
 # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=testsize, random_state=randomstate)
 
 # Create KNN classifier
-knn_classifier = KNeighborsClassifier(n_neighbors=8)
+knn_classifier = KNeighborsClassifier(n_neighbors=k)
 
 # Use one vs rest on KNN
 ovr_classifier = OneVsRestClassifier(knn_classifier)
@@ -49,23 +61,24 @@ specificity = tn / (tn + fp)
 mcc = ((tp * tn) - (fp * fn)) / (((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn)) ** 0.5)
 report = classification_report(y_test, predictions)
 
+
+# Display classification variables
+print('Classification Variables :')
+print(f'Test size: {testsize}')
+print(f'Random state: {randomstate}')
+print(f'K: {k}\n')
+
+
 # Accuracy information
+print('Accuracy Results : ')
 print(f'Accuracy: {accuracy}')
 print(f'Sensitivity: {sensitivity}')
 print(f'Specificity: {specificity}')
 print(f'Matthews Correlation Coefficient: {mcc}')
-print('Classification Report:\n', report)
-
-# used for plotting heatmap
-plt.figure(figsize=(8, 6))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=ovr_classifier.classes_, yticklabels=ovr_classifier.classes_)
-plt.title('Confusion Matrix')
-plt.xlabel('Predicted')
-plt.ylabel('Actual')
-plt.show()
+print('Classification Report:\n\n', report)
 
 # Create StratifiedKFold for classification (k-fold validation object)
-kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+kfold = StratifiedKFold(n_splits=kfoldsplits, shuffle=True, random_state=kfoldRandomstate)
 
 # Perform k-fold cross-validation
 kfold_results = cross_val_score(ovr_classifier, X, y, cv=kfold, scoring=make_scorer(accuracy_score))
@@ -74,3 +87,14 @@ kfold_results = cross_val_score(ovr_classifier, X, y, cv=kfold, scoring=make_sco
 print("Cross-Validation Results:")
 print(kfold_results)
 print(f"Mean Accuracy: {np.mean(kfold_results)}")
+print(f'Using {kfoldsplits} splits and random state {kfoldRandomstate}')
+
+
+
+# used for plotting heatmap
+# plt.figure(figsize=(8, 6))
+# sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=ovr_classifier.classes_, yticklabels=ovr_classifier.classes_)
+# plt.title('Confusion Matrix')
+# plt.xlabel('Predicted')
+# plt.ylabel('Actual')
+# plt.show()
