@@ -61,6 +61,7 @@ report = classification_report(y_test, predictions)
 
 # Display classification variables
 print('Classification Variables :')
+print('Model - SVM')
 print(f'Test size: {testsize}')
 print(f'Random state: {randomstate}')
 print(f'C: {c}\n')
