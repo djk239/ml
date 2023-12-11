@@ -1,0 +1,28 @@
+Classification Variables :
+Model - SVM
+Test size: 0.2
+Random state: 1
+C: 4
+
+Accuracy Results : 
+Accuracy: 0.6666666666666666
+Sensitivity: [0.59375    0.66666667 0.95652174 0.20833333]
+Specificity: [0.95890411 1.         0.45762712 1.        ]
+Matthews Correlation Coefficient: [0.62508552 0.81252334 0.45957415 0.41079192]
+Classification Report:
+
+               precision    recall  f1-score   support
+
+       Fold1       0.86      0.59      0.70        32
+       Fold2       1.00      0.67      0.80         3
+       Fold3       0.58      0.96      0.72        46
+       Fold4       1.00      0.21      0.34        24
+
+    accuracy                           0.67       105
+   macro avg       0.86      0.61      0.64       105
+weighted avg       0.77      0.67      0.63       105
+
+Cross-Validation Results:
+[0.6        0.61904762 0.65714286 0.59615385 0.61538462]
+Mean Accuracy: 0.6175457875457876
+Using 5 splits and random state 1

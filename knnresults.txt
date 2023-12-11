@@ -1,0 +1,28 @@
+Classification Variables :
+Model - KNN
+Test size: 0.2
+Random state: 1
+K: 8
+
+Accuracy Results : 
+Accuracy: 0.6476190476190476
+Sensitivity: [0.53125    0.         0.89130435 0.41666667]
+Specificity: [0.97260274 1.         0.54237288 0.90123457]
+Matthews Correlation Coefficient: [0.6024403         nan 0.4504185  0.35419666]
+Classification Report:
+
+               precision    recall  f1-score   support
+
+       Fold1       0.89      0.53      0.67        32
+       Fold2       0.00      0.00      0.00         3
+       Fold3       0.60      0.89      0.72        46
+       Fold4       0.56      0.42      0.48        24
+
+    accuracy                           0.65       105
+   macro avg       0.51      0.46      0.47       105
+weighted avg       0.66      0.65      0.63       105
+
+Cross-Validation Results:
+[0.52380952 0.62857143 0.67619048 0.60576923 0.57692308]
+Mean Accuracy: 0.6022527472527471
+Using 5 splits and random state 1
