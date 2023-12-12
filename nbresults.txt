@@ -1,0 +1,21 @@
+Classification Variables :
+Model - Naive Bayes
+Test size: 0.2
+Random state: 1
+Accuracy Results : 
+Accuracy: 0.44761904761904764
+Sensitivity: [0.1875     0.33333333 0.86956522 0.        ]
+Specificity: [0.91780822 0.97058824 0.16949153 1.        ]
+Matthews Correlation Coefficient: [0.15235847 0.26450358 0.05391951        nan]
+Classification Report:
+
+               precision    recall  f1-score   support
+
+       Fold1       0.50      0.19      0.27        32
+       Fold2       0.25      0.33      0.29         3
+       Fold3       0.45      0.87      0.59        46
+       Fold4       0.00      0.00      0.00        24
+
+    accuracy                           0.45       105
+   macro avg       0.30      0.35      0.29       105
+weighted avg       0.36      0.45      0.35       105

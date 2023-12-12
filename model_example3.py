@@ -65,3 +65,11 @@ print(f'Sensitivity: {sensitivity}')
 print(f'Specificity: {specificity}')
 print(f'Matthews Correlation Coefficient: {mcc}')
 print('Classification Report:\n\n', report)
+
+# used for plotting heatmap
+# plt.figure(figsize=(8, 6))
+# sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=nb_classifier.classes_, yticklabels=nb_classifier.classes_)
+# plt.title('Confusion Matrix')
+# plt.xlabel('Predicted')
+# plt.ylabel('Actual')
+# plt.show()

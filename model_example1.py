@@ -22,6 +22,7 @@ y = data['Label']
 testsize = 0.2
 randomstate = 1
 c = 4
+kernel = 'poly'
 
 # Set K fold testing variables
 kfoldRandomstate = 1
@@ -32,7 +33,7 @@ kfoldsplits = 5
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=testsize, random_state=randomstate)
 
 # Create SVC classifier
-svm_classifier = SVC(kernel='poly', C=c)
+svm_classifier = SVC(kernel=kernel, C=c)
 
 # Use one vs rest on SVC
 ovr_classifier = OneVsRestClassifier(svm_classifier)
@@ -62,6 +63,7 @@ report = classification_report(y_test, predictions)
 # Display classification variables
 print('Classification Variables :')
 print('Model - SVM')
+print(f'Kernel: {kernel}')
 print(f'Test size: {testsize}')
 print(f'Random state: {randomstate}')
 print(f'C: {c}\n')
