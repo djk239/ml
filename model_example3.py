@@ -20,7 +20,6 @@ y = data['Label']
 # Set classification variables
 testsize = 0.2
 randomstate = 1
-k = 8
 
 # Set K fold testing variables
 kfoldRandomstate = 1
@@ -60,8 +59,7 @@ report = classification_report(y_test, predictions)
 print('Classification Variables :')
 print('Model - Naive Bayes')
 print(f'Test size: {testsize}')
-print(f'Random state: {randomstate}')
-print(f'K: {k}\n')
+print(f'Random state: {randomstate}\n')
 
 
 # Accuracy information
