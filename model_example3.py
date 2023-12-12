@@ -45,7 +45,6 @@ tp = np.diag(cm)
 fp = np.sum(cm, axis=0) - tp
 fn = np.sum(cm, axis=1) - tp
 tn = np.sum(cm) - (tp + fp + fn)
-print(tp, fp, fn, tn)
 
 # Evaluate our model
 accuracy = accuracy_score(y_test, predictions)
@@ -84,9 +83,9 @@ print(f'Using {kfoldsplits} splits and random state {kfoldRandomstate}')
 
 
 # used for plotting heatmap
-# plt.figure(figsize=(8, 6))
-# sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=nb_classifier.classes_, yticklabels=nb_classifier.classes_)
-# plt.title('Confusion Matrix')
-# plt.xlabel('Predicted')
-# plt.ylabel('Actual')
-# plt.show()
+##plt.figure(figsize=(8, 6))
+##sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=nb_classifier.classes_, yticklabels=nb_classifier.classes_)
+##plt.title('Confusion Matrix')
+##plt.xlabel('Predicted')
+##plt.ylabel('Actual')
+##plt.show()
